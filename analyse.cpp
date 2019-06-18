@@ -1,4 +1,4 @@
-﻿//analyse.cpp
+//analyse.cpp
 //包含词法分析器、语法分析器和程序执行器
 //作者：张子辰
 #include "declaration.h"
@@ -194,7 +194,7 @@ inline int GetSentenceType(const string &x)
 	if(x=="SET")return StateType_Set;
 	if(x=="END")return StateType_End;
 	if(x=="DEF")return StateType_Def;
-	if(x=="VAL")return StateType_Var;
+	if(x=="VAR")return StateType_Var;
 	if(x=="RETURN")return StateType_Return;
 	return StateType_Move;
 }
@@ -550,7 +550,7 @@ int GetOneStatement(SyntaxNode *node)
 			if(sen.size()!=3||sen[1]!="array")
 			{
 				mes.fun="bool GetOneStatement(SyntaxNode *node)";
-				mes.description="bad VAL-statement format";
+				mes.description="bad VAR-statement format";
 				mes.line=TheInputIterator;
 				err.push_back(mes);
 				throw err;
